@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Page</title>
-</head>
-<body>
-
 /* All paragraphs will be colored navy, in the font Roboto Light, and font size small */
 p{
-   color: darkslategray;
-   font-family: "Roboto Light";
+   color: navy;
    font-size: small;
 }
 
@@ -29,7 +20,7 @@ table,td,th {
 /* Applied a selector by using an ID for my newly added paragraph in my HTML code */
 #goals{
     font-size: medium;
-    color: saddlebrown;
+    color: darkolivegreen;
 }
 
 /* Applied a rule block to a selector I identified in my HTML code */
