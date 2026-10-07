@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+    <link href= "/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+/* All paragraphs will be colored navy, in the font Roboto Light, and font size small */
+p{
+   color: darkslategray;
+   font-family: "Roboto Light";
+   font-size: small;
+}
+
+h2{
+    color: steelblue;
+    font-family: Georgia;
+}
+
+/* All tables' borders will be dotted, 2px width, colored saddlebrown, and collapse */
+table,td,th {
+    border-style: dotted;
+    border-width: 2px;
+    border-color: saddlebrown;
+    border-collapse: collapse;
+}
+
+/* Applied a selector by using an ID for my newly added paragraph in my HTML code */
+#goals{
+    font-size: medium;
+    color: saddlebrown;
+}
+
+/* Applied a rule block to a selector I identified in my HTML code */
+.non-acad-inter{
+    background-color: pink;
+    font-weight: bold;
+}
+
+img.logo{
+    width:267px;
+    height:72px;
+}
+
+
+
+
+
