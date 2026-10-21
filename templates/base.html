@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block page_title %}{% endblock %}</title>
+    <!-- Bootstrap link pt.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
+    <!-- Create a block at top with name and monkey -->
     <nav class="navbar bg-body-tertiary mb-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
@@ -18,21 +20,34 @@
         </div>
     </nav>
 
-    <nav class="navbar bg-body-tertiary">
+    <!--Nav bar section -->
+    <nav class="navbar navbar-expand-lg" style="background-color: lightskyblue">
         <div class="container-fluid">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <a class="navbar-brand" href="/">Navigation</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('favorite_course', subject=subject or'BMGT', course_number=course_number or '407') }}">Favorite Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
+    <!-- Fix spacing between nav bar and page head --->
     <div class="container">
-        <h1>{% block page_head %}{% endblock %}</h1>
+        <h1 class="mt-4">{% block page_head %}{% endblock %}</h1>
 
         {% block page_content %}{% endblock %}
     </div>
 
+    <!-- Bootstrap link pt.2 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

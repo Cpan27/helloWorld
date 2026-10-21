@@ -1,3 +1,4 @@
+<!-- Implement base.html -->
 {% extends "base.html" %}
 
 {% block page_title %}Contact{% endblock %}
@@ -5,6 +6,7 @@
 {% block page_head %}Contact Form{% endblock %}
 
 {% block page_content %}
+    <!-- Thank you message -->
   {% if form_submitted %}
     <div class="row g-3">
       <div class="col-12">
@@ -35,10 +37,11 @@
         <p>{{ request.form.get('email') }}</p>
       </div>
       <div class="col-12">
-        <p><a href="{{ url_for('contact') }}">Please complete form again</a></p>
+        <p><a href="{{ url_for('contact') }}">Submit another form</a></p>
       </div>
     </div>
   {% else %}
+      <!-- If they do not submit a form/pre submission, form areas that must be complete -->
     <form class="row g-3" action="{{ url_for('contact') }}" method="post">
       <div class="col-md-5">
         <label for="first_name" class="form-label">First Name</label>
@@ -61,4 +64,5 @@
       </div>
     </form>
   {% endif %}
+
 {% endblock %}
