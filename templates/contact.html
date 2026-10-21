@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block page_title %}Contact{% endblock %}
+
+{% block page_head %}Contact Form{% endblock %}
+
+{% block page_content %}
+  {% if form_submitted %}
+    <div class="row g-3">
+      <div class="col-12">
+        <h2>Thank you for completing my form</h2>
+      </div>
+      <div class="col-md-6">
+        <p>First Name:</p>
+      </div>
+      <div class="col-md-6">
+        <p>{{ request.form.get('first_name') }}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Middle Initial:</p>
+      </div>
+      <div class="col-md-6">
+        <p>{{ request.form.get('middle_initial') }}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Last Name:</p>
+      </div>
+      <div class="col-md-6">
+        <p>{{ request.form.get('last_name') }}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Email Address:</p>
+      </div>
+      <div class="col-md-6">
+        <p>{{ request.form.get('email') }}</p>
+      </div>
+      <div class="col-12">
+        <p><a href="{{ url_for('contact') }}">Please complete form again</a></p>
+      </div>
+    </div>
+  {% else %}
+    <form class="row g-3" action="{{ url_for('contact') }}" method="post">
+      <div class="col-md-5">
+        <label for="first_name" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="first_name" name="first_name" required>
+      </div>
+      <div class="col-md-2">
+        <label for="middle_initial" class="form-label">Middle Initial</label>
+        <input type="text" class="form-control" id="middle_initial" name="middle_initial" maxlength="1">
+      </div>
+      <div class="col-md-5">
+        <label for="last_name" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" required>
+      </div>
+      <div class="col-12">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  {% endif %}
+{% endblock %}
