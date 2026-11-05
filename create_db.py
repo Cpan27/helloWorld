@@ -7,7 +7,6 @@ with app.app_context():
     db.drop_all()
     db.create_all()
 
-
     # Initial loading of majors
     majors = ['Accounting', 'Finance', 'Information Systems', 'International Business', 'Management',
               'Operations Management & Business Analytics', 'Supply Chain Management']
@@ -19,12 +18,12 @@ with app.app_context():
 
     # Initial loading of students first_name, last_name, major_id, birth_date, is_honors
     students = [
-        {'student_id': '1', 'first_name': 'Robert', 'last_name':'Smith', 'major_id':3,
-            'birth_date': dt.datetime(2007, 6, 1), 'is_honors':1, 'email':'rsmith@umd.edu'},
-        {'student_id': '2', 'first_name': 'Leo', 'last_name': 'Van Munching', 'major_id':6,
-         'birth_date': dt.datetime(2008, 3, 24), 'is_honors': 0, 'email':'rsmith@umd.edu'},
+        {'student_id': '1', 'first_name': 'Robert', 'last_name': 'Smith', 'major_id': 3,
+         'birth_date': dt.datetime(2007, 6, 1), 'is_honors': 1, 'email': 'rsmith@umd.edu'},
+        {'student_id': '2', 'first_name': 'Leo', 'last_name': 'Van Munching', 'major_id': 6,
+         'birth_date': dt.datetime(2008, 3, 24), 'is_honors': 0, 'email': 'rsmith@umd.edu'},
         {'student_id': '3', 'first_name': 'Cassie', 'last_name': 'Pan', 'major_id': 6,
-         'birth_date': dt.datetime(2005, 4, 27), 'is_honors': 1, 'email':'cpan27@umd.edu'}
+         'birth_date': dt.datetime(2005, 4, 27), 'is_honors': 1, 'email': 'cpan27@terpmail.umd.edu'}
     ]
 
     for each_student in students:
@@ -39,18 +38,19 @@ with app.app_context():
 
     # Initial loading of user
     users = [
-        {'username': 'cpan27', 'first_name': 'Cassie', 'last_name': 'Pan', 'email': 'cpan27@umd.edu',
-        'password': generate_password_hash('cpan27'), 'role': 'STUDENT'},
-        ]
+        {'username': 'cpan27', 'first_name': 'Cassie', 'last_name': 'Pan', 'email': 'cpan27@terpmail.umd.edu',
+         'password': generate_password_hash('cpan27'), 'role': 'STUDENT'},
+        {'username': 'manager', 'email': 'manager@umd.edu',
+         'password': generate_password_hash('managerpw'), 'role': 'MANAGER'},
+        {'username': 'admin', 'email': 'admin@umd.edu',
+         'password': generate_password_hash('adminpw'), 'role': 'ADMIN'}
+    ]
 
     for each_user in users:
         print(f'{each_user["username"]} inserted into User')
-        a_user = User(username=each_user["username"], first_name=each_user["first_name"],last_name=each_user["last_name"],email=each_user["email"],
+        a_user = User(username=each_user["username"], first_name=each_user["first_name"],
+                      last_name=each_user["last_name"], email=each_user["email"],
                       password=each_user["password"], role=each_user["role"]
-        )
+                      )
         db.session.add(a_user)
         db.session.commit()
-
-
-
-
