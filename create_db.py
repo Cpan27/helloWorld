@@ -40,10 +40,10 @@ with app.app_context():
     users = [
         {'username': 'cpan27', 'first_name': 'Cassie', 'last_name': 'Pan', 'email': 'cpan27@terpmail.umd.edu',
          'password': generate_password_hash('cpan27'), 'role': 'STUDENT'},
-        {'username': 'manager', 'email': 'manager@umd.edu',
-         'password': generate_password_hash('managerpw'), 'role': 'MANAGER'},
-        {'username': 'admin', 'email': 'admin@umd.edu',
-         'password': generate_password_hash('adminpw'), 'role': 'ADMIN'}
+        {'username': 'manager', 'first_name': 'Cassie', 'last_name': 'Pan','email': 'cpan27@terpmail.umd.edu',
+         'password': generate_password_hash('cpan27'), 'role': 'MANAGER'},
+        {'username': 'admin', 'first_name': 'Cassie', 'last_name': 'Pan', 'email': 'cpan27@terpmail.umd.edu',
+         'password': generate_password_hash('cpan27'), 'role': 'ADMIN'}
     ]
 
     for each_user in users:
