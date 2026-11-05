@@ -55,6 +55,9 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(255))
     role = db.Column(db.String(20))
 
+    def get_id(self):
+        return str(self.user_id)
+
     def __init__(self, username, first_name, last_name, email, password, role='PUBLIC'):
         self.username = username
         self.first_name = first_name
